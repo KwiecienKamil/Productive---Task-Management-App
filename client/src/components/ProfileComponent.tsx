@@ -86,10 +86,10 @@ const ProfileComponent = () => {
 
   return (
     <div className="shadow-sm p-1 sm:p-4 pt-10">
-      <div className="card w-[95%] sm:w-[28rem] shadow-sm p-1 sm:p-4 bg-sec text-white">
-        <div className="p-4 sm:p-8 flex gap-1 sm:gap-4">
+      <div className="card shadow-sm p-1 sm:p-4 bg-sec text-white">
+        <div className="p-4 sm:p-8 flex gap-6">
           <div
-            className="flex flex-col  sm:justify-center items-center text-[20px] w-[100px] md:w-[150px] sm:max-w-[200px]"
+            className="flex flex-col sm:justify-center text-[20px] md:min-w-[150px]"
             onClick={handleImageClick}
           >
             {profileImage ? (
@@ -114,13 +114,13 @@ const ProfileComponent = () => {
               className="mt-4 hidden"
               onChange={handleChangeImage}
             />
-            <p className="flex items-center gap-2 text-center mt-2 text-sm md:text-xl">
+            <p className="flex items-center gap-2 mt-2 text-sm md:text-xl ">
               Hi,
               <span className="font-bold flex items-center">
                 {currentUserNameValue.Username}👋
               </span>
             </p>
-            <div className="flex items-center justify-center text-sm md:text-xl">
+            <div className="flex items-center text-sm md:text-xl">
               <span>{userDiamonds}</span>
               <IoDiamondSharp className="text-blue-500 " />
             </div>
