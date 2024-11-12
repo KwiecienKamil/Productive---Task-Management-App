@@ -7,7 +7,7 @@ type FinishedMission = {
   missionValue: number;
 };
 
-type MissionCompomentProps = {
+type MissionComponentProps = {
   id: number;
   title: string;
   value: number;
@@ -15,7 +15,7 @@ type MissionCompomentProps = {
   finishedMissions: FinishedMission[];
 };
 
-const MissionCompoment: FC<MissionCompomentProps> = ({
+const MissionComponent: FC<MissionComponentProps> = ({
   title,
   value,
   id,
@@ -26,9 +26,10 @@ const MissionCompoment: FC<MissionCompomentProps> = ({
   const state = useAppSelector((state) => state.doneDate.doneDates);
   const numberOfTasksDone = tasksState.length;
 
-  const finishedMissionsValues = finishedMissions.map(
-    (item) => item.missionValue
-  );
+  const finishedMissionsValues = Array.isArray(finishedMissions)
+  ? finishedMissions.map((item) => item.missionValue)
+  : [];
+
 
   return (
     <div className="flex flex-col gap-1" key={id}>
@@ -53,4 +54,4 @@ const MissionCompoment: FC<MissionCompomentProps> = ({
   );
 };
 
-export default MissionCompoment;
+export default MissionComponent;

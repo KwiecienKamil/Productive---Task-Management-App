@@ -4,6 +4,7 @@ import TaskCard from "./ui/TaskCard";
 import { useAppDispatch, useAppSelector } from "../services/state/store";
 import axios from "axios";
 import { addTask } from "../services/state/features/taskSlice";
+import { toast } from "sonner";
 
 const Tasks = () => {
   const state = useAppSelector((state) => state.task.tasks);
@@ -12,9 +13,9 @@ const Tasks = () => {
   const parsedUserId = parsedUser.id;
   const taskName = "Task";
 
-  const tasksStateForCurrentUser = state.filter(
-    (task: any) => task.User_id === parsedUserId
-  );
+  const tasksStateForCurrentUser = Array.isArray(state)
+  ? state.filter((task: any) => task.User_id === parsedUserId)
+  : [];
 
   const dispatch = useAppDispatch();
 
@@ -27,7 +28,6 @@ const Tasks = () => {
       .then((res) => {
         if (res.status === 200) {
           axios.get(`${import.meta.env.VITE_API_URL}/tasks`).then((res) => {
-            console.log(res.data[res.data.length - 1].Task_id);
             const addedTaskId = res.data[res.data.length - 1].Task_id;
             dispatch(
               addTask({
@@ -40,10 +40,11 @@ const Tasks = () => {
           });
         }
       });
+      window.location.reload();
   };
 
   return (
-    <div className="max-h-screen overflow-scroll scrollbar scrollbar-thumb-transparent">
+    <div className="max-h-screen overflow-scroll scrollbar scrollbar-thumb-transparent hide-scrollbar">
       <div className="flex items-center gap-4">
         <p className="font-semibold text-[12px] md:text-lg">
           {tasksStateForCurrentUser?.length} Tasks

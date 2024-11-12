@@ -1,5 +1,5 @@
 import { missions } from "../utils/Helpers";
-import MissionCompoment from "./ui/MissionComponent";
+import MissionComponent from "./ui/MissionComponent";
 
 type FinishedMission = {
   missionName: string;
@@ -16,7 +16,7 @@ const Quests = ({ finishedMissions }: questsProps) => {
       <h1 className="font-bold text-sm lg:text-md">Quests</h1>
       <div className="pt-8 pb-2 flex flex-col gap-4">
         {missions.map((mission) => (
-          <MissionCompoment
+          <MissionComponent
             key={mission.id}
             title={mission.title}
             value={mission.value}

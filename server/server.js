@@ -52,6 +52,28 @@ app.post('/login', (req, res) => {
     });
 });
 
+app.post('/register', (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    db.query(
+        'INSERT INTO users (Username, Password) VALUES (?, ?)',
+        [username, password],
+        (err, result) => {
+            if (err) {
+                return res.status(500).send({ error: "Database error: " + err.message });
+            }
+
+            if (result.affectedRows > 0) {
+                return res.status(200).send({ message: 'User registered successfully' });
+            } else {
+                return res.status(400).send({ message: 'User could not be registered' });
+            }
+        }
+    );
+});
+
+
 
 
 app.post('/getUsersTasks', (req, res) => {

@@ -20,10 +20,10 @@ const Missions = () => {
       });
   }, []);
 
-  const totalMissionValue = finishedMissions.reduce(
-    (sum, mission: any) => sum + mission.missionValue,
-    0
-  );
+  const totalMissionValue = Array.isArray(finishedMissions)
+  ? finishedMissions.reduce((sum, mission: any) => sum + mission.missionValue, 0)
+  : 0;
+
   localStorage.setItem("User Diamonds", totalMissionValue.toString());
 
   return (

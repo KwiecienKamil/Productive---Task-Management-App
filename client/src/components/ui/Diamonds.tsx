@@ -32,9 +32,10 @@ const Diamonds: FC<DiamondsProps> = ({
 
   const numberOfTasksDone = tasksState.length;
 
-  const finishedMissionsValues = finishedMissions.map(
-    (item) => item.missionValue
-  );
+  const finishedMissionsValues = Array.isArray(finishedMissions)
+  ? finishedMissions.map((item) => item.missionValue)
+  : [];
+
 
   const handleAddDiamonds = () => {
     if (numberOfTasksDone < numberToComplete && state.length > 0) {

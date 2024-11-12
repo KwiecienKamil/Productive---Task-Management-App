@@ -28,7 +28,7 @@ const Register = () => {
           if (res.status === 200) {
             toast.success("Successfully Registered, Now Login");
             localStorage.setItem("Loading", "true");
-            window.location.href = "/";
+            window.location.href="/"
           } else {
             toast.error("There was a problem, try again later");
           }
@@ -46,8 +46,8 @@ const Register = () => {
   };
 
   return (
-    <div className="h-screen w-full flex-col flex items-center justify-center ">
-      <p className="text-2xl pb-2 text-center">
+    <div className="h-screen w-full flex-col flex items-center justify-center bg-pri">
+      <p className="text-2xl pb-2 text-center text-black">
         Welcome to <span className="font-semibold">Productive</span>
       </p>
       <p className="text-[#787878] pb-2 text-xl">Register</p>
