@@ -22,8 +22,21 @@ const Dashboard = () => {
     (date: any) => date.User_id === currentUserId
   );
 
+  // Getting Users Tasks
   useEffect(() => {
     const isDataLoading = localStorage.getItem("Loading");
+    // Streak Rewards
+    axios
+      .post(`${import.meta.env.VITE_API_URL}/getStreakRewards`, {
+        User_id: currentUserId,
+      })
+      .then((res) => {
+        localStorage.setItem("streakRewards", JSON.stringify(res.data));
+        if (isDataLoading === "true") {
+          window.location.reload();
+        }
+      });
+    // Users Tasks
     axios
       .post(`${import.meta.env.VITE_API_URL}/getUsersTasks`, {
         User_id: currentUserId,

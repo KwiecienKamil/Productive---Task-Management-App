@@ -285,6 +285,47 @@ app.post("/claimReward", (req, res) => {
   );
 });
 
+app.post("/addStreakReward", (req, res) => {
+  const streakReward_title = req.body.streakReward_title;
+  const streakReward_value = req.body.streakReward_value;
+  const User_id = req.body.User_id;
+
+  db.query(
+    "INSERT INTO streakRewards (streakReward_title, streakReward_value, User_id) VALUES (?, ?, ?)",
+    [streakReward_title, streakReward_value, User_id],
+    (err, result) => {
+      if (err) {
+        return res.send({ err: err });
+      }
+      if (result.length > 0) {
+        return res.send(result);
+      } else {
+        return res.send({ message: "Bad request" });
+      }
+    }
+  );
+});
+
+app.post("/getStreakRewards", (req, res) => {
+  const User_id = req.body.User_id;
+
+  db.query(
+    "SELECT * FROM streakRewards WHERE User_id = ?",
+    [User_id],
+    (err, result) => {
+      if (err) {
+        return res.send({ err: err });
+      }
+
+      if (result.length > 0) {
+        return res.send(result);
+      } else {
+        return res.send({ message: "Bad request" });
+      }
+    }
+  );
+});
+
 app.listen(8081, () => {
   console.log("listening");
 });

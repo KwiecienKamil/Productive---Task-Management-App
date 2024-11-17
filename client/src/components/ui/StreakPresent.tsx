@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import packageImg from "../../assets/package.svg";
 
 import { CiCircleCheck } from "react-icons/ci";
 import { toast } from "sonner";
 import { useAppDispatch } from "../../services/state/store";
 import { addDiamonds } from "../../services/state/features/diamondsSlice";
+import axios from "axios";
 
 type StreakPresentProps = {
   day: string;
@@ -21,15 +22,37 @@ const StreakPresent = ({
 }: StreakPresentProps) => {
   const [awardClaimed, setawardClaimed] = useState(false);
 
+  // Getting User_id for api call
   const currentUser = localStorage.getItem("user");
   const currentUserId = JSON.parse(currentUser!);
 
+  // Getting User Diamonds for adding the streakReward value after
+  const streakRewards = localStorage.getItem("streakRewards");
+  const currentStreakRewards = JSON.parse(streakRewards!);
+  const claimedStreakRewardsTitles = currentStreakRewards.map(
+    (object: any) => object.streakReward_title
+  );
+  console.log(claimedStreakRewardsTitles);
+
   const dispatch = useAppDispatch();
 
-  const handleButtonClick = () => {
-    setawardClaimed(true);
+  const handleClaimAward = () => {
     dispatch(addDiamonds({ User_id: currentUserId.id, awardValue }));
-    toast.success("Success!");
+    axios
+      .post(`${import.meta.env.VITE_API_URL}/addStreakReward`, {
+        streakReward_title: day,
+        streakReward_value: awardValue,
+        User_id: currentUserId.id,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          localStorage.setItem("streakRewards", JSON.stringify(res.data));
+          setawardClaimed(true);
+          toast.success(`Successfully added ${awardValue} diamonds!`);
+        } else {
+          toast.error("Something went wrong");
+        }
+      });
   };
 
   return (
@@ -44,10 +67,10 @@ const StreakPresent = ({
         <span className="text-sm sm:text-md">{day}</span>
         {streak > dayNumber && !awardClaimed && (
           <button
-            onClick={handleButtonClick}
+            onClick={handleClaimAward}
             className="bg-pri rounded px-3 py-1 mt-2 hover:bg-pri text-sm text-black"
           >
-            Claim Award
+            Claim Reward
           </button>
         )}
         {awardClaimed && (
