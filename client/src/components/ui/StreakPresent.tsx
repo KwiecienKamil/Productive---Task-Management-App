@@ -20,19 +20,25 @@ const StreakPresent = ({
   streak,
   dayNumber,
 }: StreakPresentProps) => {
-  const [awardClaimed, setawardClaimed] = useState(false);
-
   // Getting User_id for api call
   const currentUser = localStorage.getItem("user");
   const currentUserId = JSON.parse(currentUser!);
 
-  // Getting User Diamonds for adding the streakReward value after
   const streakRewards = localStorage.getItem("streakRewards");
-  const currentStreakRewards = JSON.parse(streakRewards!);
+  const currentStreakRewards = streakRewards
+    ? (() => {
+        try {
+          const parsed = JSON.parse(streakRewards);
+          return Array.isArray(parsed) ? parsed : [];
+        } catch {
+          return [];
+        }
+      })()
+    : [];
+
   const claimedStreakRewardsTitles = currentStreakRewards.map(
     (object: any) => object.streakReward_title
   );
-  console.log(claimedStreakRewardsTitles);
 
   const dispatch = useAppDispatch();
 
@@ -46,9 +52,15 @@ const StreakPresent = ({
       })
       .then((res) => {
         if (res.status === 200) {
-          localStorage.setItem("streakRewards", JSON.stringify(res.data));
-          setawardClaimed(true);
+          axios
+            .post(`${import.meta.env.VITE_API_URL}/getStreakRewards`, {
+              User_id: currentUserId.id,
+            })
+            .then((res) => {
+              localStorage.setItem("streakRewards", JSON.stringify(res.data));
+            });
           toast.success(`Successfully added ${awardValue} diamonds!`);
+          window.location.reload();
         } else {
           toast.error("Something went wrong");
         }
@@ -65,15 +77,16 @@ const StreakPresent = ({
           }`}
         />
         <span className="text-sm sm:text-md">{day}</span>
-        {streak > dayNumber && !awardClaimed && (
-          <button
-            onClick={handleClaimAward}
-            className="bg-pri rounded px-3 py-1 mt-2 hover:bg-pri text-sm text-black"
-          >
-            Claim Reward
-          </button>
-        )}
-        {awardClaimed && (
+        {streak > dayNumber &&
+          !claimedStreakRewardsTitles.find((title: string) => title == day) && (
+            <button
+              onClick={handleClaimAward}
+              className="bg-pri rounded px-3 py-1 mt-2 hover:bg-pri text-sm text-black"
+            >
+              Claim Reward
+            </button>
+          )}
+        {claimedStreakRewardsTitles.find((title: string) => title == day) && (
           <span className="text-green-500 text-sm mt-2">Award Claimed!</span>
         )}
       </div>
