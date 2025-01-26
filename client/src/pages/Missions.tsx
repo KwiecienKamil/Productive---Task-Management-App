@@ -21,8 +21,11 @@ const Missions = () => {
   }, []);
 
   const totalMissionValue = Array.isArray(finishedMissions)
-  ? finishedMissions.reduce((sum, mission: any) => sum + mission.missionValue, 0)
-  : 0;
+    ? finishedMissions.reduce(
+        (sum, mission: any) => sum + mission.missionValue,
+        0
+      )
+    : 0;
 
   localStorage.setItem("User Diamonds", totalMissionValue.toString());
 
@@ -30,7 +33,7 @@ const Missions = () => {
     <div className="h-screen px-[2px] vsm:px-[2rem] flex pt-8 font-inter text-black bg-gradient-to-r from-[#FBAB7E] to-[#F7CE68] overflow-hidden">
       <Navbar />
       <div className="max-h-screen w-full xsm:w-[90%] px-1 vsm:px-6 pt-2 text-xl">
-        <h1 className="text-sec font-bold text-[14px]">Missions</h1>
+        <h1 className="text-sec font-bold text-[18px]">Missions</h1>
         <div className="pt-6 flex flex-col sm:flex-row md:gap-6 gap-4 lg:gap-8">
           <Quests finishedMissions={finishedMissions} />
           <DailyStreak />
