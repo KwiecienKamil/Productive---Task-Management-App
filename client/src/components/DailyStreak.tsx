@@ -11,7 +11,7 @@ const DailyStreak = () => {
         <CurrentStreak streak={streak} />
       </div>
       <StreakPresents streak={streak} />
-      <h1 className="mt-8 text-center ">Don't give up!</h1>
+      <h1 className="mt-8 text-center sm:text-md text-sm">Don't give up!</h1>
     </div>
   );
 };
