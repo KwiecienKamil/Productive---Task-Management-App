@@ -25,7 +25,7 @@ type TaskCardProps = {
 };
 
 const TaskCard: FC<TaskCardProps> = ({ Task_id, title, task }) => {
-  const [currentMonth, setCurrentMonth] = useState(getMonth());
+  const [currentMonth] = useState(getMonth());
   const [taskDone, setTaskDone] = useState(false);
   const [editingTaskTitle, setEditingTaskTitle] = useState(false);
   const [newTaskTitle, setNewTaskTitle] = useState("");
@@ -37,8 +37,6 @@ const TaskCard: FC<TaskCardProps> = ({ Task_id, title, task }) => {
   // Final doneDates in array
   const doneDates = state.filter((date: any) => date.Task_id === Task_id);
   const finalDoneDates = doneDates.map((item) => item.Task_doneDate);
-
-  const diamondsState = useAppSelector((state) => state.diamonds.diamonds);
 
   const dispatch = useAppDispatch();
 

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import packageImg from "../../assets/package.svg";
 
 import { CiCircleCheck } from "react-icons/ci";

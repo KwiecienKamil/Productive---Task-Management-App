@@ -6,10 +6,6 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const currentUser = localStorage.getItem("user");
-  const currentUserValue = currentUser ? JSON.parse(currentUser) : [];
-  const currentUserId = currentUserValue.id;
-
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     localStorage.clear();
