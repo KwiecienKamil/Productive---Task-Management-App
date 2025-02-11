@@ -4,7 +4,6 @@ import TaskCard from "./ui/TaskCard";
 import { useAppDispatch, useAppSelector } from "../services/state/store";
 import axios from "axios";
 import { addTask } from "../services/state/features/taskSlice";
-import { toast } from "sonner";
 
 const Tasks = () => {
   const state = useAppSelector((state) => state.task.tasks);
@@ -14,8 +13,8 @@ const Tasks = () => {
   const taskName = "Task";
 
   const tasksStateForCurrentUser = Array.isArray(state)
-  ? state.filter((task: any) => task.User_id === parsedUserId)
-  : [];
+    ? state.filter((task: any) => task.User_id === parsedUserId)
+    : [];
 
   const dispatch = useAppDispatch();
 
@@ -40,7 +39,7 @@ const Tasks = () => {
           });
         }
       });
-      window.location.reload();
+    window.location.reload();
   };
 
   return (

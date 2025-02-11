@@ -54,12 +54,10 @@ const Dashboard = () => {
     calculateStreak(filteredDoneDates);
   }, []);
 
-  // Helper function to clear the time from a date object
   const clearTime = (date: Date) => {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate());
   };
 
-  // Function to calculate the streak from today backwards, stopping at any break
   const calculateStreak = (
     doneDates: { Task_doneDate: string; Task_id: number }[]
   ) => {
@@ -68,7 +66,6 @@ const Dashboard = () => {
       return;
     }
 
-    // Extract unique days from the dates, sort in descending order
     const uniqueDays = Array.from(
       new Set(
         doneDates.map(
@@ -88,7 +85,6 @@ const Dashboard = () => {
       const expectedDate = new Date(today);
       expectedDate.setDate(today.getDate() - currentStreak);
 
-      // Check if the current day matches the expected date in the streak
       if (currentDay.getTime() === expectedDate.getTime()) {
         currentStreak++;
       } else {
@@ -98,7 +94,6 @@ const Dashboard = () => {
 
     setStreak(currentStreak);
 
-    // Set the first done date (earliest date in uniqueDays)
     if (uniqueDays.length) {
       setFirstDoneDate(uniqueDays[uniqueDays.length - 1]);
     }
