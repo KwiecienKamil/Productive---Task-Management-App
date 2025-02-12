@@ -17,6 +17,7 @@ const LoginForm = () => {
       })
       .then((res) => {
         localStorage.setItem("doneDates", JSON.stringify(res.data));
+        console.log(res.data);
       })
       .catch((error) => {
         console.error(error);

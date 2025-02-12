@@ -1,7 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
-require("dotenv").config();
 
 const app = express();
 app.use(cors());
@@ -327,6 +327,6 @@ app.post("/getStreakRewards", (req, res) => {
   );
 });
 
-app.listen(8081, () => {
+app.listen(process.env.DB_PORT, () => {
   console.log("listening");
 });
