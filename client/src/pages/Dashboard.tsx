@@ -17,15 +17,13 @@ const Dashboard = () => {
     ? JSON.parse(currentDoneDates)
     : [];
 
-  // Filter done dates to include only those with the matching user ID
   const filteredDoneDates = currentDoneDatesValue.filter(
     (date: any) => date.User_id === currentUserId
   );
 
-  // Getting Users Tasks
   useEffect(() => {
     const isDataLoading = localStorage.getItem("Loading");
-    // Streak Rewards
+
     axios
       .post(`${import.meta.env.VITE_API_URL}/getStreakRewards`, {
         User_id: currentUserId,
@@ -36,7 +34,7 @@ const Dashboard = () => {
           window.location.reload();
         }
       });
-    // Users Tasks
+
     axios
       .post(`${import.meta.env.VITE_API_URL}/getUsersTasks`, {
         User_id: currentUserId,
