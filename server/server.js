@@ -87,7 +87,7 @@ app.post("/getUsersTasks", (req, res) => {
   const User_id = req.body.User_id;
 
   db.query(
-    "SELECT * FROM Tasks WHERE User_id = ?",
+    "SELECT * FROM tasks WHERE User_id = ?",
     [User_id],
     (err, result) => {
       if (err) {
@@ -189,7 +189,7 @@ app.post("/removeAllDoneDates", (req, res) => {
 app.post("/removeTask", (req, res) => {
   const Task_id = req.body.Task_id;
 
-  db.query("DELETE FROM Tasks WHERE Task_id = ?", [Task_id], (err, result) => {
+  db.query("DELETE FROM tasks WHERE Task_id = ?", [Task_id], (err, result) => {
     if (err) {
       return res.send({ err: err });
     }
@@ -207,7 +207,7 @@ app.post("/tasks", (req, res) => {
   const parsedUserId = req.body.parsedUserId;
 
   db.query(
-    "INSERT INTO Tasks (Task_title, User_id) VALUES (?, ?)",
+    "INSERT INTO tasks (Task_title, User_id) VALUES (?, ?)",
     [taskName, parsedUserId],
     (err, result) => {
       if (err) {
@@ -292,7 +292,7 @@ app.post("/addStreakReward", (req, res) => {
   const User_id = req.body.User_id;
 
   db.query(
-    "INSERT INTO streakRewards (streakReward_title, streakReward_value, User_id) VALUES (?, ?, ?)",
+    "INSERT INTO streakrewards (streakReward_title, streakReward_value, User_id) VALUES (?, ?, ?)",
     [streakReward_title, streakReward_value, User_id],
     (err, result) => {
       if (err) {
@@ -311,7 +311,7 @@ app.post("/getStreakRewards", (req, res) => {
   const User_id = req.body.User_id;
 
   db.query(
-    "SELECT * FROM streakRewards WHERE User_id = ?",
+    "SELECT * FROM streakrewards WHERE User_id = ?",
     [User_id],
     (err, result) => {
       if (err) {
