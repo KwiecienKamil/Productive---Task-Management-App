@@ -28,7 +28,7 @@ app.get("/users", (req, res) => {
 
 app.get("/getDoneDates", (req, res) => {
   const sql =
-    "SELECT Tasks.Task_id, Tasks.User_id, doneDates.Task_doneDate FROM Tasks JOIN doneDates ON Tasks.Task_id = doneDates.Task_id";
+    "SELECT tasks.Task_id, tasks.User_id, donedates.Task_doneDate FROM tasks JOIN donedates ON tasks.Task_id = donedates.Task_id;";
   db.query(sql, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
@@ -108,7 +108,7 @@ app.post("/addDoneDate", (req, res) => {
   const TodaysDate = req.body.TodaysDate;
 
   db.query(
-    "INSERT INTO doneDates (Task_id, Task_doneDate) VALUES (?, ?)",
+    "INSERT INTO donedates (Task_id, Task_doneDate) VALUES (?, ?)",
     [Task_id, TodaysDate],
     (err, result) => {
       if (err) {
@@ -129,7 +129,7 @@ app.post("/deleteDoneDate", (req, res) => {
   const TodaysDate = req.body.TodaysDate;
 
   db.query(
-    "DELETE FROM doneDates WHERE Task_id = ? AND Task_doneDate = ?",
+    "DELETE FROM donedates WHERE Task_id = ? AND Task_doneDate = ?",
     [Task_id, TodaysDate],
     (err, result) => {
       if (err) {
@@ -170,7 +170,7 @@ app.post("/removeAllDoneDates", (req, res) => {
   const Task_id = req.body.Task_id;
 
   db.query(
-    "DELETE FROM doneDates WHERE Task_id = ?",
+    "DELETE FROM donedates WHERE Task_id = ?",
     [Task_id],
     (err, result) => {
       if (err) {
@@ -270,7 +270,7 @@ app.post("/claimReward", (req, res) => {
   const TodaysDate = req.body.TodaysDate;
 
   db.query(
-    "INSERT INTO doneDates (Task_id, Task_doneDate) VALUES (?, ?)",
+    "INSERT INTO donedates (Task_id, Task_doneDate) VALUES (?, ?)",
     [Task_id, TodaysDate],
     (err, result) => {
       if (err) {
