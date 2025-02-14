@@ -39,7 +39,6 @@ const Tasks = () => {
           });
         }
       });
-    window.location.reload();
   };
 
   return (
@@ -48,9 +47,9 @@ const Tasks = () => {
         <p className="font-semibold text-[12px] md:text-lg">
           {tasksStateForCurrentUser?.length} Tasks
         </p>
-        <NavButton followingHref="#">
+        <button>
           <FaPlus className="text-sm" onClick={handleAddTask} />
-        </NavButton>
+        </button>
       </div>
       <div className="pt-4 flex justify-center flex-wrap gap-2">
         {tasksStateForCurrentUser?.map((task: any) => (
