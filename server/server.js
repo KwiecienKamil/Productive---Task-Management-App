@@ -28,7 +28,7 @@ app.get("/users", (req, res) => {
 
 app.get("/getDoneDates", (req, res) => {
   const sql =
-    "SELECT tasks.Task_id, tasks.User_id, donedates.Task_doneDate FROM tasks JOIN donedates ON tasks.Task_id = donedates.Task_id;";
+    "SELECT tasks.Task_id, tasks.User_id, donedates.Task_doneDate FROM tasks JOIN donedates ON tasks.Task_id = donedates.Task_id";
   db.query(sql, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
