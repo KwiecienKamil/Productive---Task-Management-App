@@ -1,5 +1,6 @@
 import NavButton from "./ui/NavButton";
 import { NavButtons } from "../utils/Helpers";
+import LogoutButton from "./ui/LogoutButton";
 
 const Navbar = () => {
   return (
@@ -10,6 +11,7 @@ const Navbar = () => {
           {button.text}
         </NavButton>
       ))}
+      <LogoutButton responsiveClassNames="block sm:hidden" />
     </div>
   );
 };

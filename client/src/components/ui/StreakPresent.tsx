@@ -19,7 +19,6 @@ const StreakPresent = ({
   streak,
   dayNumber,
 }: StreakPresentProps) => {
-  // Getting User_id for api call
   const currentUser = localStorage.getItem("user");
   const currentUserId = JSON.parse(currentUser!);
 

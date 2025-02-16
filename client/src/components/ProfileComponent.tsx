@@ -11,7 +11,6 @@ const ProfileComponent = () => {
     ? JSON.parse(currentUserName)
     : [];
 
-  // Getting current streak
   const currentstreakValue = localStorage.getItem("streak");
   const streak = currentstreakValue ? JSON.parse(currentstreakValue) : [];
 
@@ -70,17 +69,14 @@ const ProfileComponent = () => {
     const remainingMonths = diffInMonths % 12;
     const remainingDays = diffInDays % 30;
 
-    // If less than a year and less than a month, return only days
     if (diffInYears === 0 && remainingMonths === 0) {
       return `${remainingDays} days`;
     }
 
-    // If less than a year, return only months and days
     if (diffInYears === 0) {
       return `${remainingMonths} months, ${remainingDays} days`;
     }
 
-    // If 1 or more years, return years, months, and days
     return `${diffInYears} years, ${remainingMonths} months, ${remainingDays} days`;
   };
 

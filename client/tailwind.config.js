@@ -22,6 +22,7 @@ export default {
         sec: "#393E46",
         acc: "#00ADB5",
         lightGray: "#DCDCDC",
+        btnDark: "#D0A445",
       },
       fontFamily: {
         inter: "Inter",
