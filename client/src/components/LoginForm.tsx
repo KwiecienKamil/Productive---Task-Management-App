@@ -19,7 +19,7 @@ const LoginForm = () => {
         localStorage.setItem("doneDates", JSON.stringify(res.data));
       })
       .catch((error) => {
-        console.error(error);
+        toast.error("Something went wrong, try again please");
       });
     try {
       const response = await axios.post(

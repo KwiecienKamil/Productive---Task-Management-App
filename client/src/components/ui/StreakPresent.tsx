@@ -67,7 +67,11 @@ const StreakPresent = ({
 
   return (
     <div className="flex items-center justify-center flex-col gap-2 pt-8">
-      <img src={packageImg} alt="package" className="w-[25px] sm:w-[50px]" />
+      <img
+        src={packageImg}
+        alt="package"
+        className="vsm:w-[20px] sm:w-[40px] md:w-[50px]"
+      />
       <div className="flex items-center flex-col">
         <CiCircleCheck
           className={`text-[10px] sm:text-xl md:text-3xl ${
@@ -87,7 +91,7 @@ const StreakPresent = ({
             </button>
           )}
         {claimedStreakRewardsTitles.find((title: string) => title == day) && (
-          <span className="text-green-500 text-[9px] sm:text-sm mt-2 text-center">
+          <span className="text-green-500 text-[9px] sm:text-xs lg:text-md mt-2 text-center">
             Award Claimed!
           </span>
         )}

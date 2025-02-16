@@ -33,9 +33,8 @@ const Diamonds: FC<DiamondsProps> = ({
   const numberOfTasksDone = tasksState.length;
 
   const finishedMissionsValues = Array.isArray(finishedMissions)
-  ? finishedMissions.map((item) => item.missionValue)
-  : [];
-
+    ? finishedMissions.map((item) => item.missionValue)
+    : [];
 
   const handleAddDiamonds = () => {
     if (numberOfTasksDone < numberToComplete && state.length > 0) {
@@ -72,7 +71,7 @@ const Diamonds: FC<DiamondsProps> = ({
     <div
       className={
         numberOfTasksDone < numberToComplete && state.length > 0
-          ? "flex items-center gap-1 bg-lightGray text-sec p-1 rounded-xl cursor-default"
+          ? "flex items-center justify-center gap-1 bg-lightGray text-sec p-1 rounded-xl cursor-default text-sm md:text-md lg:text-lg"
           : "flex items-center gap-1 bg-pri text-black p-1 rounded-xl cursor-pointer"
       }
       onClick={handleAddDiamonds}
