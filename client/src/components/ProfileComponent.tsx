@@ -29,7 +29,6 @@ const ProfileComponent = () => {
     }
   }, []);
 
-  // Function to convert a file to a base64 string
   const convertToBase64 = (file: File) => {
     return new Promise<string | ArrayBuffer | null>((resolve, reject) => {
       const reader = new FileReader();
@@ -56,7 +55,6 @@ const ProfileComponent = () => {
     }
   };
 
-  // Helper function to calculate the difference between two dates
   const getTimeSinceFirstDoneDate = (firstDoneDate: string) => {
     const now = new Date();
     const firstDate = new Date(firstDoneDate);

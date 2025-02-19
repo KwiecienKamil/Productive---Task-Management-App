@@ -18,7 +18,7 @@ const LoginForm = () => {
       .then((res) => {
         localStorage.setItem("doneDates", JSON.stringify(res.data));
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error("Something went wrong, try again please");
       });
     try {
