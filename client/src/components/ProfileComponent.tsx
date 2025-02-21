@@ -90,16 +90,13 @@ const ProfileComponent = () => {
               <img
                 src={profileImage}
                 alt="User picture"
-                width={100}
-                height={100}
-                className="rounded-full"
+                className="rounded-full w-[100px] h-[100px]"
               />
             ) : (
               <img
                 src={defaultUserPicture}
                 alt="User picture"
-                width={80}
-                height={80}
+                className="rounded-full w-[100px] h-[100px]"
               />
             )}
             <input

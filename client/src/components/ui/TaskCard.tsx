@@ -34,7 +34,6 @@ const TaskCard: FC<TaskCardProps> = ({ Task_id, title, task }) => {
 
   const state = useAppSelector((state) => state.doneDate.doneDates);
 
-  // Final doneDates in array
   const doneDates = state.filter((date: any) => date.Task_id === Task_id);
   const finalDoneDates = doneDates.map((item) => item.Task_doneDate);
 
