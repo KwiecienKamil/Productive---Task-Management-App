@@ -42,8 +42,10 @@ const Dashboard = () => {
       .then((res) => {
         localStorage.setItem("tasks", JSON.stringify(res.data));
         if (isDataLoading === "true") {
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
           localStorage.setItem("Loading", "false");
-          window.location.reload();
         }
       });
   }, [currentUserId]);

@@ -36,8 +36,16 @@ const Tasks = () => {
               })
             );
           });
+          axios
+            .post(`${import.meta.env.VITE_API_URL}/getUsersTasks`, {
+              User_id: parsedUserId,
+            })
+            .then((res) => {
+              localStorage.setItem("tasks", JSON.stringify(res.data));
+            });
         }
       });
+    window.location.reload();
   };
 
   return (
@@ -46,7 +54,7 @@ const Tasks = () => {
         <p className="font-semibold text-[12px] md:text-lg">
           {tasksStateForCurrentUser?.length} Tasks
         </p>
-        <button>
+        <button className="hover:bg-black/20 p-2 duration-300 rounded-xl">
           <FaPlus className="text-sm" onClick={handleAddTask} />
         </button>
       </div>

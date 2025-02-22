@@ -26,9 +26,11 @@ const Register = () => {
         )
         .then((res) => {
           if (res.status === 200) {
-            toast.success("Successfully Registered, Now Login");
+            toast.success("Successfully Registered!");
             localStorage.setItem("Loading", "true");
-            window.location.href="/"
+            setTimeout(() => {
+              window.location.href = "/";
+            }, 3000);
           } else {
             toast.error("There was a problem, try again later");
           }
