@@ -49,7 +49,7 @@ const LoginForm = () => {
         toast.success("Successfuly logged in!");
         setTimeout(() => {
           window.location.href = "/dashboard";
-        }, 3000);
+        }, 1000);
       }
     } catch (error) {
       console.error("There was an error with the login request:", error);
