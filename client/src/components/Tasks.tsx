@@ -42,10 +42,10 @@ const Tasks = () => {
             })
             .then((res) => {
               localStorage.setItem("tasks", JSON.stringify(res.data));
+              window.location.reload();
             });
         }
       });
-    window.location.reload();
   };
 
   return (

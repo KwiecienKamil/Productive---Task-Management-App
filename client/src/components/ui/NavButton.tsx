@@ -13,7 +13,7 @@ const NavButton: FC<NavButtonProps> = ({ children, followingHref }) => {
     <NavLink
       to={`${followingHref}`}
       className={`font-semibold flex items-center gap-1 px-1 py-1 sm:py-2 sm:px-3 rounded-lg duration-300 transition-colors text-sm sm:text-md md:text-xl ${
-        isActive ? "bg-black/20" : "hover:bg-pri"
+        isActive ? "bg-black/20" : "hover:black/20"
       }`}
     >
       {children}
