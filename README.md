@@ -6,7 +6,7 @@ This is Fullstack application that helps users keep up with their tasks. Users c
 
 <h2>🚀 Tech Stack</h2>
 
-🎨 Frontend:
+<b>🎨 Frontend:</b>
 
 ⚛ React (with TypeScript)
 
@@ -16,7 +16,7 @@ This is Fullstack application that helps users keep up with their tasks. Users c
 
 🛠️ Redux Toolkit for global state
 
-🛠 Backend:
+<b>🛠 Backend:</b>
 
 🟢 Node.js
 
