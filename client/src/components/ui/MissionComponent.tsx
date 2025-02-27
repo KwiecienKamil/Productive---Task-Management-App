@@ -27,13 +27,12 @@ const MissionComponent: FC<MissionComponentProps> = ({
   const numberOfTasksDone = tasksState.length;
 
   const finishedMissionsValues = Array.isArray(finishedMissions)
-  ? finishedMissions.map((item) => item.missionValue)
-  : [];
-
+    ? finishedMissions.map((item) => item.missionValue)
+    : [];
 
   return (
     <div className="flex flex-col gap-1" key={id}>
-      <p className="text-sm sm:text-xl">{title}</p>
+      <p className="text-sm md:text-[15px] lg:text-xl">{title}</p>
       <div className="flex items-center justify-between">
         <div
           className={

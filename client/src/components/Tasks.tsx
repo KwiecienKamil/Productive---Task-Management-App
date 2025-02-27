@@ -58,7 +58,7 @@ const Tasks = () => {
           <FaPlus className="text-sm" onClick={handleAddTask} />
         </button>
       </div>
-      <div className="pt-4 flex justify-center flex-wrap gap-2">
+      <div className="flex xs:justify-center flex-wrap gap-2 w-full pt-4 pl-2 sm:pl-6 md:pl-8">
         {tasksStateForCurrentUser?.map((task: any) => (
           <TaskCard
             Task_id={task.Task_id}

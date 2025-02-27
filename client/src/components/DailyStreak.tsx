@@ -6,7 +6,7 @@ const DailyStreak = () => {
   const streak = currentstreakValue ? JSON.parse(currentstreakValue) : [];
 
   return (
-    <div className="card w-[95%] vsm:w-[50%] md:w-[40%] shadow-sm p-4 bg-sec text-white">
+    <div className="card w-[95%] vsm:w-[60%] md:w-[40%] shadow-sm p-4 bg-sec text-white">
       <div className="flex items-center justify-between">
         <CurrentStreak streak={streak} />
       </div>

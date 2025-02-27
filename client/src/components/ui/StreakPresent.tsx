@@ -1,10 +1,10 @@
 import packageImg from "../../assets/package.svg";
 
-import { CiCircleCheck } from "react-icons/ci";
 import { toast } from "sonner";
 import { useAppDispatch } from "../../services/state/store";
 import { addDiamonds } from "../../services/state/features/diamondsSlice";
 import axios from "axios";
+import { TiInputChecked } from "react-icons/ti";
 
 type StreakPresentProps = {
   day: string;
@@ -70,15 +70,10 @@ const StreakPresent = ({
       <img
         src={packageImg}
         alt="package"
-        className="vsm:w-[20px] sm:w-[40px] md:w-[50px]"
+        className="w-[25px] sm:w-[40px] md:w-[50px]"
       />
       <div className="flex items-center flex-col">
-        <CiCircleCheck
-          className={`text-[10px] sm:text-xl md:text-3xl ${
-            streak > dayNumber ? "text-green-500" : "text-gray-400"
-          }`}
-        />
-        <span className="text-[10px] sm:text-sm md:text-md text-center">
+        <span className="text-[12px] vsm:text-[13px] sm:text-md md:text-md text-center">
           {day}
         </span>
         {streak > dayNumber &&
@@ -91,8 +86,8 @@ const StreakPresent = ({
             </button>
           )}
         {claimedStreakRewardsTitles.find((title: string) => title == day) && (
-          <span className="text-green-500 text-[9px] sm:text-xs lg:text-md mt-2 text-center">
-            Award Claimed!
+          <span className="text-green-500 sm:text-xl lg:text-2xl mt-2 text-center">
+            <TiInputChecked />
           </span>
         )}
       </div>

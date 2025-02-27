@@ -6,7 +6,7 @@ import Rewards from "../components/Rewards";
 
 const Dashboard = () => {
   const [streak, setStreak] = useState(0);
-  const [firstDoneDate, setFirstDoneDate] = useState<string | null>(null); // New state to store the first done date
+  const [firstDoneDate, setFirstDoneDate] = useState<string | null>(null);
 
   const currentUser = localStorage.getItem("user");
   const currentUserValue = currentUser ? JSON.parse(currentUser) : {};
@@ -103,7 +103,7 @@ const Dashboard = () => {
   localStorage.setItem("firstDoneDate", firstDoneDate || "");
 
   return (
-    <div className="h-screen px-[2px] vsm:px-[2rem] flex justify-between pt-8 font-inter text-black bg-gradient-to-r from-[#FBAB7E] to-[#F7CE68] overflow-hidden">
+    <div className="h-screen px-[2px] vsm:px-[1rem] flex justify-between pt-8 font-inter text-black bg-gradient-to-r from-[#FBAB7E] to-[#F7CE68] overflow-hidden">
       <div className="flex">
         <Navbar />
         <Tasks />

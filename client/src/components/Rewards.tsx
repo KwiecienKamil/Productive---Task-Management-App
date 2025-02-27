@@ -5,7 +5,7 @@ import LogoutButton from "./ui/LogoutButton";
 const Rewards = () => {
   return (
     <div>
-      <div className="hidden sm:flex w-[110px] sm:w-[150px] flex-col sm:items-normal items-center gap-2 pt-8 relative ">
+      <div className="hidden sm:flex flex-col sm:items-normal items-center gap-2 pt-11 relative ">
         <div className="flex justify-end w-full">
           <LogoutButton responsiveClassNames="hidden sm:block" />
         </div>

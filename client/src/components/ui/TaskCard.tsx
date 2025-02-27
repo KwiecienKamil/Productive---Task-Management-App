@@ -129,7 +129,7 @@ const TaskCard: FC<TaskCardProps> = ({ Task_id, title, task }) => {
 
   return (
     <div
-      className="card max-w-[220px] vsm:max-w-[290px] sm:max-w-[250px] lg:max-w-[300px] xl:max-w-[500px] bg-[#30343F] shadow-sm text-xl text-white pb-2"
+      className="card max-w-[80%] vsm:max-w-[290px] sm:max-w-[250px] lg:max-w-[300px] xl:max-w-[500px] bg-[#30343F] shadow-sm text-xl text-white pb-2"
       key={Task_id}
     >
       <div className="p-1 sm:p-4 py-2 flex items-center justify-between">
