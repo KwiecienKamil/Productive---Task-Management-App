@@ -4,7 +4,7 @@
 
 This is Fullstack application that helps users keep up with their tasks. Users can create acount and login. Add/delete/edit tasks, mark them as done for today. App counts daily streak of completed tasks and giving diamonds for finished missions. Tables in database are connected using foreign keys.
 
-🚀 Tech Stack
+<h2>🚀 Tech Stack</h2>
 
 🎨 Frontend:
 
@@ -24,15 +24,15 @@ This is Fullstack application that helps users keep up with their tasks. Users c
 
 🗄 MySQL (Database)
 
-🔄 Data Flow
+<h2>🔄 Data Flow</h2>
 
 📌 App is getting all information about user and tasks by passing User_id from Frontend (local storage) to Api to Database. Data is getting fetched for specific user by relations in the database, based on User_id.
 
-🏛 Database Structure
+<h2>🏛 Database Structure</h2>
 
 ✅ All tables in the database are connected via foreign keys. ✅ Queries are executed using User_id to fetch the required data.
 
-📡 Example API Flow
+<h2>📡 Example API Flow</h2>
 
 🖥 Frontend Request:
 
