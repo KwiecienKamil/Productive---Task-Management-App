@@ -1,7 +1,5 @@
-import { render, screen, cleanup } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import Login from "../pages/Login";
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import "@testing-library/jest-dom/vitest";
 
 vi.mock("../components/LoginForm", () => ({
   default: () => <div data-testid="login-form">Mocked LoginForm</div>,
