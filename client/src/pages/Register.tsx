@@ -54,7 +54,7 @@ const Register = () => {
       </p>
       <p className="text-[#787878] pb-2 text-xl">Register</p>
       <form
-        className="flex flex-col gap-2 w-[450px] pt-2 rounded-xl"
+        className="flex flex-col gap-2 w-[350px] sm:w-[450px] pt-2 rounded-xl"
         method="post"
       >
         <label
