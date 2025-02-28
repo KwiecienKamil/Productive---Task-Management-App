@@ -54,7 +54,7 @@ const Register = () => {
       </p>
       <p className="text-[#787878] pb-2 text-xl">Register</p>
       <form
-        className="flex flex-col gap-2 w-[350px] sm:w-[450px] pt-2 rounded-xl"
+        className="flex flex-col gap-2 pt-2 rounded-xl w-[200px]"
         method="post"
       >
         <label
@@ -105,7 +105,7 @@ const Register = () => {
             id="password"
           />
         </label>
-        <div className=" flex items-center justify-end gap-2">
+        <div className="flex items-center justify-end gap-2">
           <p className="text-[#787878]">Already have account?</p>
           <Link to="/" className="hover:text-black text-black font-semibold">
             Login
