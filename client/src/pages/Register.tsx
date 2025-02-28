@@ -48,13 +48,13 @@ const Register = () => {
   };
 
   return (
-    <div className="h-screen w-full flex-col flex items-center justify-center bg-pri">
+    <div className="h-screen w-full flex-col flex items-center justify-center bg-pri ">
       <p className="text-2xl pb-2 text-center text-black">
         Welcome to <span className="font-semibold">Productive</span>
       </p>
       <p className="text-[#787878] pb-2 text-xl">Register</p>
       <form
-        className="flex flex-col gap-2 pt-2 rounded-xl w-[200px]"
+        className="flex flex-col gap-2 pt-2 rounded-xl w-[350px] sm:w-[450px]"
         method="post"
       >
         <label
@@ -105,7 +105,7 @@ const Register = () => {
             id="password"
           />
         </label>
-        <div className="flex items-center justify-end gap-2">
+        <div className=" flex items-center justify-end gap-2">
           <p className="text-[#787878]">Already have account?</p>
           <Link to="/" className="hover:text-black text-black font-semibold">
             Login
