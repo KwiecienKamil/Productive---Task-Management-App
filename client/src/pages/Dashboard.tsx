@@ -103,7 +103,7 @@ const Dashboard = () => {
   localStorage.setItem("firstDoneDate", firstDoneDate || "");
 
   return (
-    <div className="h-screen px-[2px] vsm:px-[1rem] flex justify-between pt-8 font-inter text-black bg-gradient-to-r from-[#FBAB7E] to-[#F7CE68] overflow-hidden">
+    <div className="h-screen px-[2px] vsm:px-[2rem] flex justify-between pt-8 font-inter text-black bg-gradient-to-r from-[#FBAB7E] to-[#F7CE68] overflow-hidden">
       <div className="flex">
         <Navbar />
         <Tasks />

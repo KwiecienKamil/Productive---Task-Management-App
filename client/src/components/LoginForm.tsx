@@ -6,6 +6,58 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleTestUser = async (e: FormEvent) => {
+    e.preventDefault();
+    localStorage.clear();
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/getDoneDates`, {
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+        },
+      })
+      .then((res) => {
+        localStorage.setItem("doneDates", JSON.stringify(res.data));
+      })
+      .catch(() => {
+        toast.error("Something went wrong, try again please");
+      });
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/login`,
+        {
+          username: "Kamil",
+          password: "12345",
+        },
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.data.message) {
+        toast.error("Wrong Username/password");
+      } else {
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            id: response.data[0].User_id,
+            Username: username,
+          })
+        );
+        localStorage.setItem("Loading", "true");
+        toast.success("Successfuly logged in!");
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 1000);
+      }
+    } catch (error) {
+      console.error("There was an error with the login request:", error);
+    }
+    setUsername("");
+    setPassword("");
+  }
+
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     localStorage.clear();
@@ -126,6 +178,7 @@ const LoginForm = () => {
       >
         Login
       </button>
+        <button onClick={handleTestUser} className="btn bg-blue-700 hover:bg-blue-500 px-4 py-2 text-white">Test application</button>
     </form>
   );
 };

@@ -30,7 +30,7 @@ const Missions = () => {
   localStorage.setItem("User Diamonds", totalMissionValue.toString());
 
   return (
-    <div className="h-screen px-[2px] vsm:px-[1rem] flex pt-8 font-inter text-black bg-gradient-to-r from-[#FBAB7E] to-[#F7CE68] overflow-hidden">
+    <div className="h-screen px-[2px] vsm:px-[2rem] flex pt-8 font-inter text-black bg-gradient-to-r from-[#FBAB7E] to-[#F7CE68] overflow-hidden">
       <Navbar />
       <div className="w-full px-1 pt-2 text-xl">
         <h1 className="text-sec font-bold text-[18px]">Missions</h1>
